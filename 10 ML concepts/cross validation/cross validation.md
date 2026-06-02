@@ -1,1 +1,1 @@
-The goal of [[cross validation]] (CV) is to determine the generalisation error of the [[ml]] algorithm. In other words if we actually have a model with predictive power, or which has overfit the training data.
+The goal of [[cross validation]] (CV) is to determine the generalisation error of the [[machine learning]] algorithm. In other words if we actually have a model with predictive power, or which has overfit the training data.
