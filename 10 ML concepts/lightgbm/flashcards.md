@@ -38,3 +38,50 @@ How do the time complexities of calculating a split differ between a pre-sorted 
 ?
 - **Histogram Building:** Calculating gradients per bin takes $O(\text{\#data})$ time.
 - **Split Evaluation:** Finding the optimal split point over the constructed bins drops to $O(\text{\#bins})$. Because $\text{\#bins} \ll \text{\#data}$, evaluating split candidates becomes negligible.
+
+---
+#flashcards/lightgbm-parameters
+
+What does `num_leaves` control in LightGBM, and what is its default value?
+?
+It sets the maximum number of leaves allowed in a single tree. Default = 31. *(Note: This is the main parameter controlling tree complexity in LightGBM's leaf-wise growth).*
+
+---
+
+What does `min_data_in_leaf` do, and what is its default value?
+?
+It specifies the minimum number of data samples required to form a leaf node. Default = 20. It is a crucial parameter used to prevent overfitting.
+
+---
+
+What does `feature_fraction` control, and how does it operate if set to 0.8?
+?
+It tells LightGBM to randomly select a subset of features for building each tree. If set to 0.8, LightGBM randomly selects 80% of the total features. Default = 1.
+
+---
+
+What is `bagging_fraction`, and what secondary parameter must be configured for it to work?
+?
+It defines the fraction of data rows to be randomly sampled per tree (similar to feature fraction, but for rows). For it to be active, `bagging_freq` must be set to a non-zero value ($\neq 0$). Default = 1.
+
+---
+
+What does `bagging_freq` control, and what do settings of 0 vs. $k$ mean?
+?
+It defines the frequency of data bagging iterations. 
+- $0$: Bagging is disabled.
+- $k$: Perform bagging every $k$ boosting iterations/operations. Default = 0.
+
+---
+
+What do `learning_rate` and `num_iterations` represent, and what are their default values?
+?
+- **`learning_rate`:** The shrinkage rate applied to each tree update. Default = 0.1.
+- **`num_iterations` (or `n_estimators`):** The total number of boosting rounds/trees built. Default = 100.
+
+---
+
+What parameters control L1 and L2 regularization in LightGBM, and what are their default settings?
+?
+- **`lambda_l1`:** Controls $L_1$ regularization. Default = 0.
+- **`lambda_l2`:** Controls $L_2$ regularization. Default = 0.
