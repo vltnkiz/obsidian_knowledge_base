@@ -7,4 +7,4 @@
 What is the defining characteristic of stratified k-fold cross-validation
 ?
 It rearranges the data splits so that each fold contains roughly the same percentage of each target class as the entire dataset.
-<!--SR:!2026-06-04,3,250-->
+<!--SR:!2026-06-29,8,250-->

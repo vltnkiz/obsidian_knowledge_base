@@ -9,6 +9,7 @@ Time Bars sample the market at fixed time intervals (e.g., 1-minute bars). They 
 What are Tick Bars, and how do they extract information differently than Time Bars?
 ?
 Tick Bars sample data every time a fixed number of transactions (ticks) occurs, regardless of time. This allows them to sample more frequently during high-activity periods and less frequently during low-activity periods, aligning the data density with actual market activity.
+<!--SR:!2026-06-24,3,250-->
 
 ---
 

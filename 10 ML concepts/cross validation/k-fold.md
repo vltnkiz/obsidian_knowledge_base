@@ -7,9 +7,9 @@
 What does the "k" in k-fold cross-validation represent
 ?
 The number of equally sized subsamples (or folds) the dataset is split into.
-<!--SR:!2026-06-11,10,270-->
+<!--SR:!2026-07-18,27,270-->
 
 How many folds is the predictions trained on after the splits have been made
 ?
 k-1
-<!--SR:!2026-06-12,11,270-->
+<!--SR:!2026-07-21,30,270-->
