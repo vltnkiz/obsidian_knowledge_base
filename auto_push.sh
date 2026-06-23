@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VAULT_DIR="/home/valentin/Documents/Obsidian Vault"
+VAULT_DIR="/home/valentin/Desktop/knowledge_base/"
 
 cd "$VAULT_DIR" || exit 1
 
