@@ -3,13 +3,14 @@
 What are Time Bars, and what is their primary drawback when sampling financial markets?
 ?
 Time Bars sample the market at fixed time intervals (e.g., 1-minute bars). They waste data samples during quiet periods and under-sample when the market is highly active.
+<!--SR:!2026-07-02,4,270-->
 
 ---
 
 What are Tick Bars, and how do they extract information differently than Time Bars?
 ?
 Tick Bars sample data every time a fixed number of transactions (ticks) occurs, regardless of time. This allows them to sample more frequently during high-activity periods and less frequently during low-activity periods, aligning the data density with actual market activity.
-<!--SR:!2026-06-24,3,250-->
+<!--SR:!2026-07-05,7,250-->
 
 ---
 
@@ -22,6 +23,7 @@ Volume Bars sample data every time a pre-defined number of units/shares are trad
 What are Dollar Bars, and why are they often preferred over Tick or Volume Bars in long-term analysis?
 ?
 Dollar Bars sample data every time a fixed amount of fiat currency value (e.g., $1,000,000) is exchanged. They adjust naturally to significant asset price changes, whereas Tick and Volume bars can become heavily distorted if an asset's price doubles or drops significantly over time.
+<!--SR:!2026-07-01,3,250-->
 
 ---
 
@@ -42,18 +44,21 @@ How does the closing frequency of a Tick Imbalance Bar (TIB) differ during infor
 What distinguishes Volume Imbalance Bars (VIBs) and Dollar Imbalance Bars (DIBs) from basic Tick Imbalance Bars?
 ?
 Instead of treating every transaction equally, VIBs and DIBs weight the cumulative imbalance ($\theta_\tau$) by the size of the trade. They multiply the tick sign ($b_t$) by the volume ($v_t$) or dollar value traded to measure directional bias in market size.
+<!--SR:!2026-07-01,3,250-->
 
 ---
 
 What is the main limitation of training machine learning models on uniform random sampling in financial markets?
 ?
 Most random bars contain no interesting market activity. The model trains on a mixed signal containing mostly noise, resulting in low accuracy because it learns to predict noise.
+<!--SR:!2026-07-01,3,250-->
 
 ---
 
 How does Event-Driven Sampling (Selective Sampling) optimize model training compared to random sampling?
 ?
 It samples data points only when specific catalytic conditions exist. This ensures the machine learning model trains exclusively during periods where the features are informative, yielding higher accuracy by capturing the actual signal.
+<!--SR:!2026-07-01,3,250-->
 
 ---
 

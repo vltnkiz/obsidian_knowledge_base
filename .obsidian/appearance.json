@@ -1,5 +1,6 @@
 {
   "cssTheme": "AnuPpuccin",
   "accentColor": "#999999",
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "baseFontSize": 15
 }

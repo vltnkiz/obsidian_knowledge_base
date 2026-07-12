@@ -20,7 +20,14 @@
     "multilineCardSeparator": "?",
     "multilineReversedCardSeparator": "??",
     "multilineCardEndMarker": "",
-    "editLaterTag": "#edit-later",
+    "enableReviewReminders": false,
+    "reviewReminderIntervalMinutes": 5,
+    "reviewReminderCheckOnStartup": false,
+    "reviewReminderMessage": "",
+    "reviewReminderAutoOpen": true,
+    "reviewReminderShowNotice": true,
+    "reviewReminderPlaySound": true,
+    "reviewReminderBounceDock": true,
     "enableNoteReviewPaneOnStartup": true,
     "tagsToReview": [
       "#review"
@@ -34,7 +41,6 @@
     "showFileMenuReviewOptions": true,
     "deleteTagsOnSchedulingDataDeletion": false,
     "maxNDaysNotesReviewQueue": 365,
-    "showRibbonIcon": true,
     "showStatusBar": true,
     "showCardStatusBarItem": true,
     "showNoteStatusBarItem": true,
@@ -42,8 +48,8 @@
     "initiallyExpandAllSubdecksInTree": true,
     "showContextInCards": true,
     "showIntervalInReviewButtons": true,
-    "flashcardHeightPercentage": 60.0625,
-    "flashcardWidthPercentage": 60,
+    "flashcardHeightPercentage": 60.05809731299927,
+    "flashcardWidthPercentage": 60.016025641025635,
     "flashcardHeightPercentageMobile": 100,
     "flashcardWidthPercentageMobile": 100,
     "flashcardAgainText": "Again",
@@ -56,6 +62,7 @@
     "openViewInNewTab": false,
     "openViewInNewTabMobile": false,
     "useCustomHotkeys": false,
+    "useCalloutsForSchedulingComments": false,
     "algorithm": "SM-2-OSR",
     "baseEase": 250,
     "lapsesIntervalChange": 0.5,
@@ -67,11 +74,18 @@
     "startOfDay": "00:00:00",
     "dataStore": "NOTES",
     "cardCommentOnSameLine": false,
+    "scheduleDataVaultLocation": "Spaced Repetition",
     "showSchedulingDebugMessages": false,
     "showParserDebugMessages": false,
-    "preferredDateFormatForNoteReviewQueue": "MMM DD YYYY"
+    "preferredDateFormatForNoteReviewQueue": "MMM DD YYYY",
+    "preferredLocale": "-"
   },
-  "buryDate": "2026-06-25",
+  "buryDate": "2026-07-12",
   "buryList": [],
-  "historyDeck": null
+  "historyDeck": null,
+  "scheduleData": {
+    "version": 1,
+    "noteSchedules": {},
+    "cardSchedules": {}
+  }
 }
