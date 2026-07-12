@@ -1,4 +1,4 @@
-## Creating Data Structure
+## Creating Data Structures
 
 ```python
 import pandas as pd
