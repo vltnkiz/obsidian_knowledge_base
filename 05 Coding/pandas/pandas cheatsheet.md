@@ -42,6 +42,12 @@ df.iloc[0:3]          # slice rows by position
 df[df["age"] > 28]                             # single condition
 df[(df["age"] > 28) & (df["score"] >= 80)]     # multiple conditions
 df[df["name"].isin(["Alice", "Charlie"])]      # isin filter
+
+# query : filter using string expressions (cleaner for complex conditions)
+df.query("age > 28")                           # single condition
+df.query("age > 28 and score >= 80")           # multiple conditions
+df.query("name in ['Alice', 'Charlie']")       # isin filter
+df.query("age > @min_age")                     # use external variable with @
 ```
 
 ---
@@ -59,6 +65,18 @@ df["grade"] = df["score"].map({88: "B", 92: "A", 79: "C"})
 # apply : apply a function along rows or columns
 df["score_scaled"] = df["score"].apply(lambda x: x / 100)
 df["summary"] = df.apply(lambda row: f"{row['name']} ({row['age']})", axis=1)
+
+# assign : create or modify columns in a chain (returns new DataFrame)
+df = df.assign(
+    score_scaled=lambda x: x["score"] / 100,
+    is_adult=lambda x: x["age"] >= 18,
+    name_upper=lambda x: x["name"].str.upper()
+)
+# Can reference newly created columns in same assign call
+df = df.assign(
+    total=lambda x: x["score"] * 2,
+    total_plus_ten=lambda x: x["total"] + 10  # uses 'total' from same assign
+)
 ```
 
 ---
@@ -141,6 +159,34 @@ df.groupby("dept").agg(
 df.groupby("dept").nth(0)               # first row of each group
 df.groupby("dept").nth(-1)              # last row of each group
 df.groupby("dept").nth([0, -1])         # first and last row of each group
+```
+
+---
+
+## Ranking Data (rank)
+
+```python
+df = pd.DataFrame({
+    "name":  ["Alice", "Bob", "Charlie", "Dan"],
+    "score": [85, 92, 85, 78]
+})
+
+# rank : assign rank to each value (1 = lowest, n = highest by default)
+df["rank"] = df["score"].rank()                    # default: average method
+df["rank"] = df["score"].rank(ascending=False)     # 1 = highest score
+
+# method parameter controls how to handle ties
+df["rank_avg"] = df["score"].rank(method="average")    # average of ranks (default)
+df["rank_min"] = df["score"].rank(method="min")        # same rank = minimum rank
+df["rank_max"] = df["score"].rank(method="max")        # same rank = maximum rank
+df["rank_first"] = df["score"].rank(method="first")    # rank by order in data
+df["rank_dense"] = df["score"].rank(method="dense")    # like min but no gaps
+
+# rank within groups
+df["rank_by_dept"] = df.groupby("dept")["score"].rank(ascending=False)
+
+# percentile rank (0 to 1)
+df["pct_rank"] = df["score"].rank(pct=True)
 ```
 
 ---

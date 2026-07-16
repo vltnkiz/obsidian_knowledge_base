@@ -1,4 +1,4 @@
-#flashcards/optuna-tuning
+#flashcards/ml/optuna-tuning
 
 What are the three core conceptual steps required to perform hyperparameter optimization using Optuna?
 ?

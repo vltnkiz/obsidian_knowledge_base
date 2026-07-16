@@ -1,4 +1,4 @@
-#flashcards/sample-weights
+#flashcards/data-analysis/sample-weights
 
 Why are traditional series of labels not IID (Independent and Identically Distributed) in financial machine learning?
 ?

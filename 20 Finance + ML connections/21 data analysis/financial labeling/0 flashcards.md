@@ -1,4 +1,4 @@
-#flashcards/financial-labeling
+#flashcards/data-analysis/financial-labeling
 
 What is the Fixed-Time Horizon method of labeling, and what are its poor statistical properties?
 ?

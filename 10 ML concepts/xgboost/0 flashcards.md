@@ -1,4 +1,4 @@
-#flashcards/xgboost 
+#flashcards/ml/xgboost 
 
 What is the full objective function that XGBoost minimizes at a given iteration, and what does each of its three components represent?
 ?
@@ -57,7 +57,7 @@ $\text{Gain} = \frac{1}{2} \left( \text{Score}_L + \text{Score}_R - \text{Score}
 - **$\gamma$**: The cost of adding a new leaf. If the gain from splitting doesn't exceed $\gamma$, the split is rejected (pruned).
 
 ---
-#flashcards/xgboost-parameters
+#flashcards/ml/xgboost-parameters
 
 What does `learning_rate` control in XGBoost, and what is the trade-off of making it lower?
 ?

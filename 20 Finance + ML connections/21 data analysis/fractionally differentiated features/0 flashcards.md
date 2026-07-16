@@ -1,4 +1,4 @@
-#flashcards/fractional-differentiation
+#flashcards/data-analysis/fractional-differentiation
 
 Why is there a core dilemma between stationarity and memory when preparing financial features for machine learning?
 ?

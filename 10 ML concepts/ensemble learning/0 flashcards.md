@@ -1,4 +1,4 @@
-#flashcards/ensemble-learning
+#flashcards/ml/ensemble-learning
 
 What is Bootstrapping, and how does it generate different subsets from a single dataset?
 ?

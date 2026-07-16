@@ -1,5 +1,5 @@
 
-#flashcards/lightgbm
+#flashcards/ml/lightgbm
 
 What does GOSS stand for, and what core problem does it solve in tree boosting?
 ?
@@ -40,7 +40,7 @@ How do the time complexities of calculating a split differ between a pre-sorted 
 - **Split Evaluation:** Finding the optimal split point over the constructed bins drops to $O(\text{\#bins})$. Because $\text{\#bins} \ll \text{\#data}$, evaluating split candidates becomes negligible.
 
 ---
-#flashcards/lightgbm-parameters
+#flashcards/ml/lightgbm-parameters
 
 What does `num_leaves` control in LightGBM, and what is its default value?
 ?

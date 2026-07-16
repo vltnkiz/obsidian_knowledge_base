@@ -6,6 +6,10 @@ arr = np.linspace(1, 10, 10)    # 10 evenly spaced values from 1 to 10
 arr = np.arange(12)             # [0, 1, 2, ..., 11]
 
 matrix = np.array([[1,2,3], [4,5,6], [7,8,9]])
+
+# Identity matrix (1s on diagonal, 0s elsewhere)
+identity = np.eye(3)            # [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+identity = np.eye(3, 4)         # 3x4 matrix with 1s on diagonal
 ```
 
 ---
@@ -50,6 +54,26 @@ row_arr = matrix.ravel()       # [0, 1, 2, ..., 11]
 sub_matrix = matrix[0:2, 1:3]  # rows 0-1, columns 1-2
 ```
 
+#### fancy indexing
+
+```python
+arr = np.array([10, 20, 30, 40, 50])
+
+# Integer array indexing - select elements at specific indices
+indices = [0, 2, 4]
+arr[indices]                    # [10, 30, 50]
+
+# Multiple dimensions
+matrix = np.arange(25).reshape(5, 5)
+rows = [0, 2, 4]
+cols = [1, 3, 4]
+matrix[rows, cols]              # elements at (0,1), (2,3), (4,4)
+
+# ⚠️ Fancy indexing always creates a COPY (unlike basic slicing)
+fancy_arr = arr[[0, 1, 2]]
+fancy_arr[0] = 999              # arr remains unchanged
+```
+
 #### copy vs view
 
 ```python
@@ -57,7 +81,7 @@ sub_matrix = matrix[0:2, 1:3]  # rows 0-1, columns 1-2
 view_arr = arr[0:3]
 view_arr[0] = 99               # changes arr[0] to 99 too!
 
-# Fancy sling create a COPY
+# Fancy slicing create a COPY
 copy_arr = arr[[0, 1]]
 copy_arr[0] = 99               # arr remains unchanged
 
@@ -133,6 +157,31 @@ np.max(matrix, axis = 0)   # max by col ([7, 8, 9])
 scores = np.array([85, 90, 78, 92, 88, 74])
 np.mean(scores)    # average
 np.std(scores)     # standard deviation
+```
+
+---
+
+## Sorting
+
+```python
+arr = np.array([3, 1, 4, 1, 5, 9, 2])
+
+# np.sort: returns a sorted COPY (original unchanged)
+sorted_arr = np.sort(arr)       # [1, 1, 2, 3, 4, 5, 9]
+
+# arr.sort(): sorts IN-PLACE (modifies original)
+arr.sort()                      # arr is now [1, 1, 2, 3, 4, 5, 9]
+
+# Sort 2D arrays
+matrix = np.array([[3, 1, 4], [1, 5, 9], [2, 6, 5]])
+np.sort(matrix, axis=0)         # sort each column
+np.sort(matrix, axis=1)         # sort each row
+np.sort(matrix, axis=None)      # flatten then sort
+
+# Get indices that would sort the array
+arr = np.array([30, 10, 20])
+indices = np.argsort(arr)       # [1, 2, 0]
+arr[indices]                    # [10, 20, 30]
 ```
 
 ---

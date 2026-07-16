@@ -1,4 +1,4 @@
-#flashcards/financial-data
+#flashcards/data-analysis/financial-data
 
 What are Time Bars, and what is their primary drawback when sampling financial markets?
 ?
