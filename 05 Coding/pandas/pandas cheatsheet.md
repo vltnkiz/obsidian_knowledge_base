@@ -66,6 +66,11 @@ df["grade"] = df["score"].map({88: "B", 92: "A", 79: "C"})
 df["score_scaled"] = df["score"].apply(lambda x: x / 100)
 df["summary"] = df.apply(lambda row: f"{row['name']} ({row['age']})", axis=1)
 
+# transform : like apply, but result must be same shape as input (broadcastable back)
+df["score_scaled"] = df["score"].transform(lambda x: x / 100)   # Series -> Series, same length
+df[["score", "age"]] = df[["score", "age"]].transform(lambda x: x - x.mean())  # per-column, same shape
+df[["score", "age"]] = df[["score", "age"]].transform(["sqrt", "exp"])  # multiple funcs at once (widens columns)
+
 # assign : create or modify columns in a chain (returns new DataFrame)
 df = df.assign(
     score_scaled=lambda x: x["score"] / 100,
@@ -159,6 +164,12 @@ df.groupby("dept").agg(
 df.groupby("dept").nth(0)               # first row of each group
 df.groupby("dept").nth(-1)              # last row of each group
 df.groupby("dept").nth([0, -1])         # first and last row of each group
+
+# transform : returns a result broadcast back to the original shape/index
+# (unlike agg, which collapses each group to one row)
+df["dept_avg_salary"] = df.groupby("dept")["salary"].transform("mean")
+df["salary_vs_dept_avg"] = df["salary"] - df["dept_avg_salary"]
+df["salary_zscore"] = df.groupby("dept")["salary"].transform(lambda x: (x - x.mean()) / x.std())
 ```
 
 ---
