@@ -47,3 +47,27 @@ By mathematical definition, what direction does a gradient (∇L) point, and why
 ?
 The Gradient (∇L) always points in the direction of steepest ascent (the fastest way to increase the loss function). This is because derivatives naturally measure how a function grows.
 The Negative Gradient (−∇L) flips that direction to point straight down (steepest descent). We use it because our goal in machine learning is to minimize error and find the bottom of the loss valley.
+
+---
+
+In Era Boosting, why can two models with the same overall returns carry very different risk?
+?
+Because performance stationarity matters, not just total return: a model whose win/loss sequence lacks autocorrelation (more memoryless, no long drawdown "burns") is more stationary and therefore lower-risk than one with long streaks of losses, even if both hit the same accuracy.
+
+---
+
+What is a likely root cause of non-stationary model performance, and what technique is it parallel to?
+?
+Non-stationary features — features that work well in specific regimes and then cycle into losses in the next regime. This parallels feature neutralization, where over-reliance on certain features is deliberately reduced.
+
+---
+
+What is the "smart Sharpe ratio" and why introduce it over the plain Sharpe ratio?
+?
+Smart Sharpe = mean returns / (std of returns × autocorrelation penalty), versus plain Sharpe = mean returns / std of returns. Plain Sharpe penalizes variance of returns but treats scattered losses the same as one big clump of losses; smart Sharpe also penalizes low autocorrelation (return clumping), so two models can have equal Sharpe but different smart Sharpe.
+
+---
+
+How does the Era Boosting algorithm implementation work?
+?
+At each iteration, train only on the eras with the worst correlations (score each era, e.g. via Spearman correlation between predictions and target, take the worst-scoring proportion), grow the ensemble by adding new trees fit on just those worst eras, and repeat. This forces new trees to specifically address the eras/clumps causing losses.
