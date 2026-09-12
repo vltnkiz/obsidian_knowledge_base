@@ -116,3 +116,51 @@ It represents the same physical transformation $M$ as seen from a different coor
 1. $P$ — translate the input vector into our standard language.
 2. $M$ — apply the transformation in our system.
 3. $P^{-1}$ — translate the result back into the alternate coordinate language.
+
+---
+
+What is the **column space** $C(A)$, and which space does it live in?
+?
+$C(A)$ is the set of all vectors $b$ that are reachable by $A\vec{x}$ — i.e. **where $b$ lives in $A\vec{x} = \vec{b}$**. For an $m \times n$ matrix, $C(A)$ is a subspace of $\mathbb{R}^m$ with dimension $\text{rank}(A)$. It is spanned by the columns of $A$.
+
+---
+
+What is the **null space** $N(A)$, and which space does it live in?
+?
+$N(A)$ is the set of all vectors $x$ that solve $A\vec{x} = \vec{0}$. For an $m \times n$ matrix, $N(A)$ is a subspace of $\mathbb{R}^n$ with dimension $n - \text{rank}(A)$.
+
+---
+
+What is the **rank** of a matrix, in terms of elimination?
+?
+The rank equals the **number of pivot columns** — the pivots left after running Gaussian elimination to row echelon form. For example, $\begin{bmatrix} 1 & 2 & 3 \ 2 & 4 & 6 \ 3 & 4 & 7 \end{bmatrix}$ reduces to a form with two pivots, so its rank is 2.
+
+---
+
+State the **rank–nullity theorem** as it falls out of the column/null space dimensions.
+?
+For an $m \times n$ matrix:
+$$\text{rank}(A) + \dim N(A) = n$$
+The $r$ independent directions are used up by the column space; the remaining $n - r$ input directions collapse to zero and form the null space.
+
+---
+
+What two conditions must a set of vectors satisfy to be a **basis** for a space?
+?
+The vectors must be:
+1. **Linearly independent**, and
+2. **Span the space** (every vector in the space is some linear combination of them).
+
+---
+
+How do you test whether a set of vectors is **linearly independent** using the null space?
+?
+A set of vectors is independent if and only if its null space contains only the zero vector:
+$$N(A) = \{\vec{0}\}$$
+Any non-zero solution to $A\vec{x} = \vec{0}$ would be a non-trivial linear combination producing zero, i.e. a dependency.
+
+---
+
+What is the difference between the **ambient space** and the **dimension** of a subspace?
+?
+The **ambient space** is how many entries a vector has (which $\mathbb{R}^n$ it is written in); the **dimension** is how many **independent directions** it actually has. This is why we say "$C(A)$ is an $r$-dimensional subspace of $\mathbb{R}^m$" — the subspace can have far fewer independent directions than the space it sits inside.
